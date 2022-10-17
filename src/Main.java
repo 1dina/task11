@@ -2,33 +2,36 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static int largest;
-    public static int smallest;
-    public static int diff;
-    public static int sub ;
-    public static String case1 = "safe zone";
-    public static String case2 = "dangerous zone";
+    static int largest;
+     static int smallest;
+     static int diff;
+     static int all ;
+     static String case1 = "safe zone";
+     static String case2 = "dangerous zone";
 
 
     public static void main(String[] args) {
         System.out.println("How many numbers do you want ?");
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
-
+        all = 0 ;
 
         System.out.println("please enter your numbers :");
         for (int i = 0; i < num; i++) {
             int currentlyNum = in.nextInt();
-            sub = currentlyNum - sub;
             if (i == 0) {
                 largest = currentlyNum;
                 smallest = currentlyNum;
                 continue;
             }
 
+
             if (currentlyNum > largest) largest = currentlyNum;
 
             if (currentlyNum < smallest) smallest = currentlyNum;
+            if (largest != smallest){
+                all ++ ;
+            }
 
         }
         diff = largest - smallest;
@@ -51,6 +54,7 @@ public class Main {
     public static String equal() {
         if (smallest == largest )
             return "special case";
+        if (all==1) return "special case";
 
 
         return "";
